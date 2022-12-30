@@ -37,7 +37,7 @@ export const XMTP_PREFIX = 'lens.dev/dm';
 // Application
 export const APP_NAME = 'GoodGains Gram';
 export const DESCRIPTION =
-  'GoodGians Gram is a composable, decentralized, and permissionless social media web app built with Lens Protocol 🌿';
+  'GoodGains Gram is a composable, decentralized, and permissionless social media web app built with Lens Protocol 🌿';
 export const DEFAULT_OG = 'https://assets.lenster.xyz/images/og/logo.jpeg';
 export const APP_VERSION = packageJson.version;
 
