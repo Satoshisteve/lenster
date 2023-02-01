@@ -3,7 +3,6 @@ import getEnvConfig from './utils/getEnvConfig';
 
 // Environments
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-export const IS_PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
 
 // Lens Network
 export const LENS_NETWORK = process.env.NEXT_PUBLIC_LENS_NETWORK ?? 'mainnet';
@@ -20,12 +19,14 @@ export const SERVERLESS_STAGING_SANDBOX_API_URL = 'https://api-staging-sandbox.l
 export const SERVERLESS_SANDBOX_API_URL = 'https://api-sandbox.lenster.xyz';
 export const SERVERLESS_DEVELOPMENT_API_URL = 'http://localhost:4784';
 
+export const PRO_STATUS_API_URL = 'https://pro.lenster.xyz';
+
 export const SERVERLESS_URL = getEnvConfig().serverlessEndpoint;
 export const API_URL = getEnvConfig().apiEndpoint;
 export const LENSHUB_PROXY = getEnvConfig().lensHubProxyAddress;
 export const LENS_PERIPHERY = getEnvConfig().lensPeripheryAddress;
+export const FREE_COLLECT_MODULE = getEnvConfig().freeCollectModuleAddress;
 export const DEFAULT_COLLECT_TOKEN = getEnvConfig().defaultCollectToken;
-export const LIT_PROTOCOL_ENVIRONMENT = getEnvConfig().litProtocolEnvironment;
 
 export const IS_MAINNET = API_URL === MAINNET_API_URL;
 
@@ -36,7 +37,7 @@ export const XMTP_PREFIX = 'lens.dev/dm';
 // Application
 export const APP_NAME = 'GoodGains Gram';
 export const DESCRIPTION =
-  'Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol 🌿';
+  'GoodGains Gram is a composable, decentralized, and permissionless social media web app built with Lens Protocol 🌿';
 export const DEFAULT_OG = 'https://assets.lenster.xyz/images/og/logo.jpeg';
 export const APP_VERSION = packageJson.version;
 
@@ -44,10 +45,9 @@ export const APP_VERSION = packageJson.version;
 export const GIT_COMMIT_SHA = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
 
 // Misc
-export const CONTACT_EMAIL = 'support@lenster.freshdesk.com';
+export const CONTACT_EMAIL = 'support@lenster.xyz';
+export const RELAY_ON = true;
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const LENSPROTOCOL_HANDLE = 'lensprotocol';
-export const HANDLE_SUFFIX = IS_MAINNET ? '.lens' : '.test';
 
 // Messages
 export const ERROR_MESSAGE = 'Something went wrong!';
@@ -62,15 +62,14 @@ export const STATIC_ASSETS_URL = 'https://assets.lenster.xyz';
 export const STATIC_IMAGES_URL = `${STATIC_ASSETS_URL}/images`;
 export const POLYGONSCAN_URL = IS_MAINNET ? 'https://polygonscan.com' : 'https://mumbai.polygonscan.com';
 export const RARIBLE_URL = IS_MAINNET ? 'https://rarible.com' : 'https://rinkeby.rarible.com';
-export const MEDIA_PROXY_URL = 'https://media.lenster.xyz';
-export const OG_MEDIA_PROXY_URL = 'https://og-media.lenster.xyz';
+export const IMGPROXY_URL = 'https://media.lenster.xyz';
 export const ARWEAVE_GATEWAY = 'https://arweave.net';
-export const IPFS_GATEWAY = 'https://lens.infura-ipfs.io/ipfs/';
+export const IPFS_GATEWAY = 'https://gateway.ipfscdn.io/ipfs/';
 export const EVER_API = 'https://endpoint.4everland.co';
 export const SIMPLEANALYTICS_API = 'https://simpleanalytics.com/lenster.xyz.json';
 
 // Web3
-export const ALCHEMY_KEY = 'HHfOFn8jsYguteTVvL0cz4g9aydrbjTV';
+export const RPC_URL = IS_MAINNET ? 'https://rpc.ankr.com/polygon' : 'https://rpc.ankr.com/polygon_mumbai';
 
 // Errors
 export const ERRORS = {
@@ -115,11 +114,5 @@ export const LS_KEYS = {
   LENSTER_STORE: 'lenster.store',
   TRANSACTION_STORE: 'transaction.store',
   TIMELINE_STORE: 'timeline.store',
-  MESSAGE_STORE: 'message.store',
-  SELECTED_LOCALE: 'selected.locale'
-};
-
-// S3 bucket
-export const S3_BUCKET = {
-  LENSTER_MEDIA: 'lenster-media'
+  MESSAGE_STORE: 'message.store'
 };
